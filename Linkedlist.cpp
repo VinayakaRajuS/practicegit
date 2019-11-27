@@ -69,6 +69,23 @@ class LinkedList
 
         }
 
+        LinkedList &reverse()
+        {
+            Node *curr = head;
+            Node *temp = NULL;
+            Node *prev = NULL;
+
+            while(curr)
+            {
+                temp = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = temp;
+            }
+            head = prev;
+            return *this;
+        }
+
 
 
         void display()
@@ -106,6 +123,9 @@ cout << endl;
 cin >> delem;
 l1.removeNode(delem);
 cout << endl;
+l1.display();
+cout << "reverse a linked list" << endl;
+l1.reverse();
 l1.display();
 
 
