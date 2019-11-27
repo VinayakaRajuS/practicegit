@@ -45,6 +45,32 @@ class LinkedList
             
         }
 
+        LinkedList &removeNode(const int &val)
+        {
+            Node *curr = head;
+            Node *prev = NULL;
+
+            while(val != curr->data)
+            {
+                prev = curr;
+                curr = curr->next;
+            }
+            if(prev == NULL)
+            {
+                head = curr->next;
+            }
+            else
+            {
+                prev->next = curr->next;
+            }
+            return *this;
+            
+
+
+        }
+
+
+
         void display()
         {
             Node *curr = head;
@@ -75,7 +101,12 @@ for(int i=0; i<n; i++)
     l1.insert(elem);
 }
 l1.display();
-
+int delem;
+cout << endl;
+cin >> delem;
+l1.removeNode(delem);
+cout << endl;
+l1.display();
 
 
 
